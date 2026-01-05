@@ -50,9 +50,9 @@ python -u run.py \
       --bert_name="bert-base-uncased" \
       --seed=1234 \
       --only_test \
-      --max_seq=80 \
+      --max_seq=192 \
       --use_prompt \
-      --prompt_len=4 \
+      --prompt_len=12 \
       --sample_ratio=1.0 \
       --load_path='your_ner_ckpt_path'
 
