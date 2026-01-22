@@ -6,6 +6,8 @@ The repository is validated on two standard MNER benchmark datasets: Twitter2015
 The text data follows the conll format. You can download the Twitter2015 data via this link and download the Twitter2017 data via this link. Please place them in data/NER_data.
 You can also put them anywhere and modify the path configuration in run.py‎Requirements – Any dependencies (e.g., Python libraries).
 The expected structure of files is:
+
+```shell
  |-- data
  |    |-- NER_data
  |    |    |-- twitter2015  # text data
@@ -33,6 +35,7 @@ The expected structure of files is:
  |-- logs     # code logs
  |-- run.py   # main 
  |-- run_ner_task.sh
+```
 models/bert_model.py: Integrates all key components (contrastive aggregation, dynamic matching, cross-modal fusion) into a unified framework.
 processor/dataset.py: Loads text (tokenization via BERT tokenizer) and visual data (feature extraction via CLIP/DINO), and aligns them using pre-built mapping dictionaries.
 train/trainer.py: Implements the training process with combined loss (contrastive loss + NER CRF loss) and supports Adam optimizer, learning rate scheduling, and model checkpoint saving.
