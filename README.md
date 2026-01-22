@@ -1,5 +1,42 @@
-# Co-MIPN
-Multi-modal Named Entity Recognition
+# Title
+Co-MIPN: Cross-modal guided interactive entity recognition network via contrastive aggregation and dynamic similarity 
+
+# Description:Dataset Overview
+The repository is validated on two standard MNER benchmark datasets: Twitter2015 and Twitter2017, which are widely used in multimodal information extraction research. Both datasets are derived from Twitter  posts, combining short text and associated images to address entity recognition under real-world social media scenarios.
+The text data follows the conll format. You can download the Twitter2015 data via this link and download the Twitter2017 data via this link. Please place them in data/NER_data.
+You can also put them anywhere and modify the path configuration in run.py‎Requirements – Any dependencies (e.g., Python libraries).
+The expected structure of files is:
+ |-- data
+ |    |-- NER_data
+ |    |    |-- twitter2015  # text data
+ |    |    |    |-- train.txt
+ |    |    |    |-- valid.txt
+ |    |    |    |-- test.txt
+ |    |    |    |-- twitter2015_train_dict.pth
+ |    |    |    |-- ...
+ |    |    |-- twitter2015_images       # raw image data
+ |    |    |-- twitter2015_aux_images   # object image data
+ |    |    |-- twitter2017
+ |    |    |-- twitter2017_images
+ |    |    |-- twitter2017_aux_images
+ |-- models	# models
+ |    |-- bert_model.py
+ |    |-- modeling_bert1.py
+ |    |-- modeling_bert2.py
+ |    |-- modeling_bert3.py
+ |    |-- modeling_bert4.py
+ |-- modules
+ |    |-- metrics.py    # metric
+ |    |-- train.py  # trainer
+ |-- processor
+ |    |-- dataset.py    # processor, dataset
+ |-- logs     # code logs
+ |-- run.py   # main 
+ |-- run_ner_task.sh
+models/bert_model.py: Integrates all key components (contrastive aggregation, dynamic matching, cross-modal fusion) into a unified framework.
+processor/dataset.py: Loads text (tokenization via BERT tokenizer) and visual data (feature extraction via CLIP/DINO), and aligns them using pre-built mapping dictionaries.
+train/trainer.py: Implements the training process with combined loss (contrastive loss + NER CRF loss) and supports Adam optimizer, learning rate scheduling, and model checkpoint saving.
+run.py: Supports flexible parameter configuration (e.g., --use_contrastive for enabling contrastive aggregation, --use_dynamic_matching for dynamic similarity matching) to adapt to different experimental settings.
 
 Requirements
 ==========
