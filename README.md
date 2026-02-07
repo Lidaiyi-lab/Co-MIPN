@@ -1,10 +1,16 @@
 # Title
 Co-MIPN: Cross-modal guided interactive entity recognition network via contrastive aggregation and dynamic similarity 
 
-# Description:Dataset Overview
-The repository is validated on two standard MNER benchmark datasets: Twitter2015 and Twitter2017, which are widely used in multimodal information extraction research. Both datasets are derived from Twitter  posts, combining short text and associated images to address entity recognition under real-world social media scenarios.
-The text data follows the conll format. You can download the Twitter2015 data via this link and download the Twitter2017 data via this link. Please place them in data/NER_data.
-You can also put them anywhere and modify the path configuration in run.py‎Requirements – Any dependencies (e.g., Python libraries).
+Description - An overview of the code/dataset
+==========
+(1) An overview of the dataset
+==========
+1. The repository is validated on two standard MNER benchmark datasets: Twitter2015 and Twitter2017, which are widely used in multimodal information extraction research. Both datasets are derived from Twitter posts, combining short text and associated images to address entity recognition under real-world social media scenarios.
+2. The text data follows the conll format. You can download the Twitter2015 data the Twitter2017 data via this link (https://doi.org/10.6084/m9.figshare.31123498). Please place them in data/NER_data.
+3. You can also put them anywhere and modify the path configuration in run.py ‎Requirements – Any dependencies (e.g., Python libraries).
+
+(2) An overview of the code
+==========
 The expected structure of files is:
 
 ```shell
@@ -36,10 +42,19 @@ The expected structure of files is:
  |-- run.py   # main 
  |-- run_ner_task.sh
 ```
-models/bert_model.py: Integrates all key components (contrastive aggregation, dynamic matching, cross-modal fusion) into a unified framework.
-processor/dataset.py: Loads text (tokenization via BERT tokenizer) and visual data (feature extraction via CLIP/DINO), and aligns them using pre-built mapping dictionaries.
-train/trainer.py: Implements the training process with combined loss (contrastive loss + NER CRF loss) and supports Adam optimizer, learning rate scheduling, and model checkpoint saving.
-run.py: Supports flexible parameter configuration (e.g., --use_contrastive for enabling contrastive aggregation, --use_dynamic_matching for dynamic similarity matching) to adapt to different experimental settings.
+Code Information
+==========
+1. models/bert_model.py: Integrates all key components (contrastive aggregation, dynamic matching, cross-modal fusion) into a unified framework.
+2. models/metrics.py: Defines evaluation metrics for NER tasks (e.g., precision, recall, F1-score).
+3. processor/dataset.py: Loads text (tokenization via BERT tokenizer) and visual data (feature extraction via CLIP/DINO), and aligns them using pre-built mapping dictionaries.
+4. train/trainer.py: Implements the training process with combined loss (contrastive loss + NER CRF loss) and supports Adam optimizer, learning rate scheduling, and model checkpoint saving.
+5. run.py: Supports flexible parameter configuration (e.g., --use_contrastive for enabling contrastive aggregation, --use_dynamic_matching for dynamic similarity matching) to adapt to different experimental settings.
+   
+Data Information
+==========
++ Twitter2015 & Twitter2017
+
+Data download: https://doi.org/10.6084/m9.figshare.31123498, Please place them in `data/NER_data`.
 
 Requirements
 ==========
@@ -47,7 +62,9 @@ To run the codes, you need to install the requirements:
 ```
 pip install -r requirements.txt
 ```
-Data Preprocess
+‎Usage Instructions 
+==========
+Data Processing
 ==========
 To extract visual object images, we first use the NLTK parser to extract noun phrases from the text and apply the [visual grouding toolkit](https://github.com/zyang-ur/onestage_grounding) to detect objects. Detailed steps are as follows:
 
@@ -62,8 +79,7 @@ Data Download
 
 + Twitter2015 & Twitter2017
 
-    The text data follows the conll format. You can download the Twitter2015 data via this [link](https://drive.google.com/file/d/1qAWrV9IaiBadICFb7mAreXy3llao_teZ/view?usp=sharing) and download the Twitter2017 data via this [link](https://drive.google.com/file/d/1ogfbn-XEYtk9GpUECq1-IwzINnhKGJqy/view?usp=sharing). Please place them in `data/NER_data`.
-
+    The text data follows the conll format. You can download the Twitter2015 data the Twitter2017 data via this link (https://doi.org/10.6084/m9.figshare.31123498). Please place them in data/NER_data.
     You can also put them anywhere and modify the path configuration in `run.py`
 
 Train
@@ -101,3 +117,8 @@ Acknowledgement
 ==========
 
 The acquisition of Twitter15 and Twitter17 data refer to the code from [UMT](https://github.com/jefferyYu/UMT/), many thanks.
+
+Citations
+==========
+Jianfei Yu, Jing Jiang, Li Yang, and Rui Xia. 2020. Improving Multimodal Named Entity Recognition via Entity Span Detection with Unified Multimodal Transformer. In Proceedings of the 58th Annual Meeting of the Association for Computational Linguistics, pages 3342–3352.
+
