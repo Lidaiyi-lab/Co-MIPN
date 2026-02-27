@@ -1,0 +1,8 @@
+transformers==4.11.3
+tensorboardX==2.4
+TorchCRF==1.1.0
+wandb==0.12.1
+torch==2.7.1+cu118
+torchvision==0.22.1+cu118
+torchaudio==2.7.1+cu118
+scikit-learn==1.0

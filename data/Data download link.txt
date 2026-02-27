@@ -1,0 +1,11 @@
+Data Download
+https://doi.org/10.6084/m9.figshare.31123498
+
+
+twitter15_data.tar.gz：
+https://drive.google.com/file/d/1qAWrV9IaiBadICFb7mAreXy3llao_teZ/view?pli=1
+
+twitter17_data.tar.gz
+https://drive.google.com/file/d/1ogfbn-XEYtk9GpUECq1-IwzINnhKGJqy/view
+
+
