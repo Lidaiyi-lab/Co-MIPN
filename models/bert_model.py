@@ -26,7 +26,7 @@ import warnings
 
 warnings.filterwarnings("ignore", category=FutureWarning)
 
-
+# Image classification model
 class ImageModel(nn.Module):
     """
     Image feature extractor using CLIP Vision Transformer
@@ -59,7 +59,7 @@ class ImageModel(nn.Module):
         prompt_guids = list(self.clip(x, output_hidden_states=True).hidden_states)
         return prompt_guids  # Output shape: 13x(bsz, seq_len, hidden_size)
 
-
+# NER Core Model
 class HMNeTREModel(nn.Module):
     def __init__(self, num_labels, tokenizer, args):
         super(HMNeTREModel, self).__init__()
